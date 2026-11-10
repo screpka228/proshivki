@@ -1,0 +1,43 @@
+{
+  "codename": "nairo",
+  "names": [
+    "Moto G 5G Plus"
+  ],
+  "brand": "Motorola",
+  "soc": "Snapdragon 765G",
+  "android_range": null,
+  "bootloader": {
+    "status": "oem_unlock",
+    "wait_days": null,
+    "method": "Получить код разблокировки на сайте производителя и ввести через fastboot",
+    "guide_url": null,
+    "notes": "Модели некоторых операторов не разблокируются. Разблокировка стирает данные."
+  },
+  "recovery": [
+    {
+      "name": "Lineage Recovery",
+      "official": true,
+      "url": "https://wiki.lineageos.org/devices/nairo/"
+    }
+  ],
+  "roms": [
+    {
+      "name": "LineageOS",
+      "android": null,
+      "status": "active",
+      "official": true,
+      "url": "https://wiki.lineageos.org/devices/nairo/"
+    }
+  ],
+  "treble_gsi": true,
+  "difficulty": 3,
+  "links": {
+    "4pda": null,
+    "xda": null
+  },
+  "image": null,
+  "updated": "2026-11-10",
+  "sources": [
+    "https://wiki.lineageos.org/devices/nairo/"
+  ]
+}

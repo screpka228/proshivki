@@ -1,0 +1,14 @@
+{
+  "name": "proshivki",
+  "version": "0.1.0",
+  "private": true,
+  "license": "AGPL-3.0-or-later",
+  "type": "module",
+  "scripts": {
+    "validate": "node scripts/validate.mjs",
+    "build:index": "node scripts/build-index.mjs"
+  },
+  "devDependencies": {
+    "ajv": "^8.17.1"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "codename": "lemonade",
+  "names": ["OnePlus 9", "LE2113", "LE2110", "LE2115"],
+  "brand": "OnePlus",
+  "soc": "Snapdragon 888",
+  "android_range": "11–14",
+  "bootloader": { "status": "oem_unlock", "wait_days": 0, "method": "«Разблокировка OEM» в настройках разработчика, затем fastboot oem unlock", "guide_url": null, "notes": "Разблокировка стирает данные. Версии для оператора T-Mobile могут быть ограничены." },
+  "recovery": [{ "name": "Lineage Recovery", "official": true, "url": "https://wiki.lineageos.org/devices/lemonade/" }],
+  "roms": [{ "name": "LineageOS", "android": null, "status": "active", "official": true, "url": "https://wiki.lineageos.org/devices/lemonade/" }],
+  "treble_gsi": true,
+  "difficulty": 2,
+  "links": { "4pda": null, "xda": null },
+  "image": null,
+  "updated": "2026-11-10",
+  "sources": ["https://wiki.lineageos.org/devices/lemonade/"]
+}

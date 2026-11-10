@@ -1,0 +1,16 @@
+{
+  "codename": "alioth",
+  "names": ["POCO F3", "Redmi K40", "Mi 11X", "Xiaomi Mi 11X"],
+  "brand": "Xiaomi",
+  "soc": "Snapdragon 870",
+  "android_range": "11–14",
+  "bootloader": { "status": "wait", "wait_days": null, "method": "Привязать аккаунт Mi в настройках разработчика и ждать срок, затем Mi Unlock Tool", "guide_url": "https://en.miui.com/unlock/", "notes": "Срок ожидания зависит от аккаунта и региона, точное число не указано." },
+  "recovery": [{ "name": "Lineage Recovery", "official": true, "url": "https://wiki.lineageos.org/devices/alioth/" }],
+  "roms": [{ "name": "LineageOS", "android": null, "status": "active", "official": true, "url": "https://wiki.lineageos.org/devices/alioth/" }],
+  "treble_gsi": true,
+  "difficulty": 3,
+  "links": { "4pda": null, "xda": null },
+  "image": null,
+  "updated": "2026-11-10",
+  "sources": ["https://wiki.lineageos.org/devices/alioth/", "https://en.miui.com/unlock/"]
+}

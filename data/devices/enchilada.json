@@ -1,0 +1,43 @@
+{
+  "codename": "enchilada",
+  "names": [
+    "OnePlus 6"
+  ],
+  "brand": "OnePlus",
+  "soc": "Snapdragon 845",
+  "android_range": null,
+  "bootloader": {
+    "status": "oem_unlock",
+    "wait_days": 0,
+    "method": "«Разблокировка OEM» в настройках разработчика, затем fastboot oem unlock",
+    "guide_url": null,
+    "notes": "Версии для некоторых операторов могут быть заблокированы. Разблокировка стирает данные."
+  },
+  "recovery": [
+    {
+      "name": "Lineage Recovery",
+      "official": true,
+      "url": "https://wiki.lineageos.org/devices/enchilada/"
+    }
+  ],
+  "roms": [
+    {
+      "name": "LineageOS",
+      "android": null,
+      "status": "active",
+      "official": true,
+      "url": "https://wiki.lineageos.org/devices/enchilada/"
+    }
+  ],
+  "treble_gsi": true,
+  "difficulty": 2,
+  "links": {
+    "4pda": null,
+    "xda": null
+  },
+  "image": null,
+  "updated": "2026-11-10",
+  "sources": [
+    "https://wiki.lineageos.org/devices/enchilada/"
+  ]
+}

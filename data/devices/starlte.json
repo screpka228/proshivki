@@ -1,0 +1,16 @@
+{
+  "codename": "starlte",
+  "names": ["Samsung Galaxy S9", "SM-G960F", "SM-G960N"],
+  "brand": "Samsung",
+  "soc": "Exynos 9810",
+  "android_range": "8–12",
+  "bootloader": { "status": "oem_unlock", "wait_days": null, "method": "«Разблокировка OEM» в настройках разработчика, затем режим загрузки (Download mode)", "guide_url": "https://wiki.lineageos.org/devices/starlte/install/", "notes": "Модели некоторых операторов и регионов заблокированы. Разблокировка стирает данные." },
+  "recovery": [{ "name": "Lineage Recovery", "official": true, "url": "https://wiki.lineageos.org/devices/starlte/" }],
+  "roms": [{ "name": "LineageOS", "android": null, "status": "active", "official": true, "url": "https://wiki.lineageos.org/devices/starlte/" }],
+  "treble_gsi": true,
+  "difficulty": 3,
+  "links": { "4pda": null, "xda": null },
+  "image": null,
+  "updated": "2026-11-10",
+  "sources": ["https://wiki.lineageos.org/devices/starlte/"]
+}

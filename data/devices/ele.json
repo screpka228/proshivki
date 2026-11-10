@@ -1,0 +1,16 @@
+{
+  "codename": "ele",
+  "names": ["Huawei P30", "ELE-L29", "ELE-L09"],
+  "brand": "Huawei",
+  "soc": "Kirin 980",
+  "android_range": "9–10",
+  "bootloader": { "status": "impossible", "wait_days": null, "method": null, "guide_url": null, "notes": "Производитель прекратил выдачу кодов разблокировки загрузчика в 2018 году." },
+  "recovery": [],
+  "roms": [],
+  "treble_gsi": null,
+  "difficulty": 5,
+  "links": { "4pda": null, "xda": null },
+  "image": null,
+  "updated": "2026-11-10",
+  "sources": ["https://en.wikipedia.org/wiki/Huawei_P30"]
+}

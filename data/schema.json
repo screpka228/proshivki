@@ -1,0 +1,228 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://github.com/screpka228/proshivki/data/schema.json",
+  "title": "Device",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "codename",
+    "names",
+    "brand",
+    "bootloader",
+    "recovery",
+    "roms",
+    "difficulty",
+    "updated",
+    "sources"
+  ],
+  "definitions": {
+    "url": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "pattern": "^https://"
+    }
+  },
+  "properties": {
+    "codename": {
+      "type": "string",
+      "pattern": "^[a-z0-9_]+$"
+    },
+    "names": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "brand": {
+      "type": "string",
+      "minLength": 1
+    },
+    "soc": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "android_range": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "bootloader": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "status"
+      ],
+      "properties": {
+        "status": {
+          "enum": [
+            "open",
+            "oem_unlock",
+            "wait",
+            "impossible",
+            "unknown"
+          ]
+        },
+        "wait_days": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "method": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "guide_url": {
+          "$ref": "#/definitions/url"
+        },
+        "notes": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    },
+    "recovery": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "name",
+          "official"
+        ],
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "official": {
+            "type": "boolean"
+          },
+          "url": {
+            "$ref": "#/definitions/url"
+          }
+        }
+      }
+    },
+    "roms": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "name",
+          "status",
+          "official"
+        ],
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "android": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "status": {
+            "enum": [
+              "active",
+              "abandoned"
+            ]
+          },
+          "official": {
+            "type": "boolean"
+          },
+          "url": {
+            "$ref": "#/definitions/url"
+          }
+        }
+      }
+    },
+    "treble_gsi": {
+      "type": [
+        "boolean",
+        "null"
+      ]
+    },
+    "difficulty": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "minimum": 1,
+      "maximum": 5
+    },
+    "links": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "4pda": {
+          "$ref": "#/definitions/url"
+        },
+        "xda": {
+          "$ref": "#/definitions/url"
+        }
+      }
+    },
+    "image": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": false,
+      "required": [
+        "url",
+        "author",
+        "license",
+        "source"
+      ],
+      "properties": {
+        "url": {
+          "type": "string"
+        },
+        "author": {
+          "type": "string"
+        },
+        "license": {
+          "enum": [
+            "CC BY",
+            "CC BY-SA",
+            "CC0",
+            "PD"
+          ]
+        },
+        "source": {
+          "$ref": "#/definitions/url"
+        }
+      }
+    },
+    "updated": {
+      "type": "string",
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$"
+    },
+    "sources": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "pattern": "^https://"
+      }
+    },
+    "manual": {
+      "type": "boolean",
+      "description": "true или отсутствует — файл правили люди, сборщик его не трогает; false — создан сборщиком"
+    }
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "codename": "davinci",
+  "names": [
+    "Mi 9T",
+    "Redmi K20"
+  ],
+  "brand": "Xiaomi",
+  "soc": "Snapdragon 730",
+  "android_range": null,
+  "bootloader": {
+    "status": "wait",
+    "wait_days": 7,
+    "method": "Привязать аккаунт Mi в настройках разработчика, дождаться срока и разблокировать через Mi Unlock Tool",
+    "guide_url": null,
+    "notes": "Срок и условия зависят от аккаунта, региона и версии оболочки; на новых версиях правила жёстче. Разблокировка стирает данные."
+  },
+  "recovery": [
+    {
+      "name": "Lineage Recovery",
+      "official": true,
+      "url": "https://wiki.lineageos.org/devices/davinci/"
+    }
+  ],
+  "roms": [
+    {
+      "name": "LineageOS",
+      "android": null,
+      "status": "active",
+      "official": true,
+      "url": "https://wiki.lineageos.org/devices/davinci/"
+    }
+  ],
+  "treble_gsi": true,
+  "difficulty": 3,
+  "links": {
+    "4pda": null,
+    "xda": null
+  },
+  "image": null,
+  "updated": "2026-11-10",
+  "sources": [
+    "https://wiki.lineageos.org/devices/davinci/"
+  ]
+}

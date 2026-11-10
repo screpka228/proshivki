@@ -1,0 +1,38 @@
+name: Добавить / исправить модель
+description: Расскажите, что знаете о телефоне — после проверки он появится в базе
+title: "[Модель] "
+labels: ["data"]
+body:
+  - type: input
+    id: model
+    attributes: { label: Модель и кодовое имя, placeholder: "Xiaomi 14T · degas" }
+    validations: { required: true }
+  - type: dropdown
+    id: bootloader
+    attributes:
+      label: Загрузчик
+      options: [Открыт / разблокируется сразу, Разблокируется с ожиданием, Разблокировать нельзя, Не знаю]
+    validations: { required: true }
+  - type: input
+    id: wait
+    attributes: { label: Срок ожидания (дни), description: Если есть ожидание }
+  - type: textarea
+    id: roms
+    attributes: { label: Прошивки и рекавери, placeholder: "LineageOS, crDroid, TWRP…" }
+  - type: input
+    id: link4pda
+    attributes: { label: Ссылка на ветку 4PDA, placeholder: "https://4pda.to/forum/..." }
+  - type: input
+    id: linkxda
+    attributes: { label: Ссылка на ветку XDA }
+  - type: textarea
+    id: notes
+    attributes: { label: Заметки своими словами, description: Не копируйте тексты и инструкции с других сайтов }
+  - type: checkboxes
+    id: consent
+    attributes:
+      label: Согласие
+      options:
+        - label: Я согласен(на), что мой вклад будет распространяться под CC BY-NC-SA 4.0 (данные) и AGPL-3.0 (код)
+          required: true
+        - label: Если прикладываю фото — оно моё и я согласен(на) на CC BY-SA

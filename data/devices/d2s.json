@@ -1,0 +1,44 @@
+{
+  "codename": "d2s",
+  "names": [
+    "Samsung Galaxy Note 10+",
+    "SM-N975F"
+  ],
+  "brand": "Samsung",
+  "soc": "Exynos 9825",
+  "android_range": null,
+  "bootloader": {
+    "status": "oem_unlock",
+    "wait_days": null,
+    "method": "«Разблокировка OEM» в настройках разработчика, затем режим загрузки (Download mode)",
+    "guide_url": null,
+    "notes": "На некоторых версиях пункт появляется только через несколько дней после включения интернета. Модели ряда операторов и регионов заблокированы. Разблокировка стирает данные."
+  },
+  "recovery": [
+    {
+      "name": "Lineage Recovery",
+      "official": true,
+      "url": "https://wiki.lineageos.org/devices/d2s/"
+    }
+  ],
+  "roms": [
+    {
+      "name": "LineageOS",
+      "android": null,
+      "status": "active",
+      "official": true,
+      "url": "https://wiki.lineageos.org/devices/d2s/"
+    }
+  ],
+  "treble_gsi": true,
+  "difficulty": 3,
+  "links": {
+    "4pda": null,
+    "xda": null
+  },
+  "image": null,
+  "updated": "2026-11-10",
+  "sources": [
+    "https://wiki.lineageos.org/devices/d2s/"
+  ]
+}
