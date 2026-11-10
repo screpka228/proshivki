@@ -208,5 +208,27 @@
     "https://wiki.lineageos.org/devices/oriole/",
     "https://source.android.com/docs/core/architecture/bootloader/locking_unlocking",
     "https://github.com/screpka228/proshivki/issues/1"
+  ],
+  "kernels": [
+    {
+      "name": "Haru86hm Custom Kernel",
+      "android": null,
+      "url": "https://4pda.to/forum/index.php?showtopic=1071695&view=findpost&p=139637032"
+    },
+    {
+      "name": "blu_spark r65",
+      "android": "12L",
+      "url": "https://forum.xda-developers.com/t/kernel-blu_spark-r65-a12l.4370811/"
+    },
+    {
+      "name": "Radioactive Kernel v1.1.5",
+      "android": "12L",
+      "url": "https://forum.xda-developers.com/t/kernel-radioactive-kernel-v1-1-5-a12l-2022-05-03-unified-pixel6-pixel6pro.4375933/"
+    },
+    {
+      "name": "Kirisakura 2.4.0",
+      "android": "12.1",
+      "url": "https://forum.xda-developers.com/t/kernel-03-05-2022-android-12-1-0-android-12-1-0-qpr-beta-2-kirisakura-2-4-0-for-pixel-6-pro-aka-raviole.4358435/"
+    }
   ]
 }

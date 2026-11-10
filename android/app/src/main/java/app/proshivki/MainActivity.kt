@@ -327,7 +327,18 @@ fun DeviceScreen(repo: Repo, code: String, onBack: () -> Unit, onAdd: (String) -
                 T("РЕКАВЕРИ", 12, sub = true)
                 val a = d.getJSONArray("recovery")
                 if (a.length() == 0) T("нет данных", sub = true)
-                for (i in 0 until a.length()) { val o = a.getJSONObject(i); LinkText(o.getString("name") + if (o.getBoolean("official")) " · официальный ↗" else " ↗", s(o, "url")) }
+                for (i in 0 until a.length()) { val o = a.getJSONObject(i); LinkText(o.getString("name") + if (o.getBoolean("official")) " · официальный ↗" else " · кастомный ↗", s(o, "url")) }
+            }
+        }
+        item {
+            Card {
+                T("ЯДРА", 12, sub = true)
+                val a = d.optJSONArray("kernels")
+                if (a == null || a.length() == 0) T("нет данных", sub = true)
+                else for (i in 0 until a.length()) {
+                    val o = a.getJSONObject(i)
+                    LinkText(o.getString("name") + (s(o, "android")?.let { " · A$it" } ?: "") + " ↗", s(o, "url"))
+                }
             }
         }
         item {

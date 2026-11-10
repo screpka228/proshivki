@@ -19,6 +19,12 @@ body:
   - type: textarea
     id: roms
     attributes: { label: Прошивки и рекавери, placeholder: "LineageOS, crDroid, TWRP…" }
+  - type: textarea
+    id: recovery
+    attributes: { label: Кастомные рекавери, placeholder: "TWRP, OrangeFox… со ссылками" }
+  - type: textarea
+    id: kernels
+    attributes: { label: Ядра, placeholder: "Название и ссылка на ветку" }
   - type: input
     id: link4pda
     attributes: { label: Ссылка на ветку 4PDA, placeholder: "https://4pda.to/forum/..." }

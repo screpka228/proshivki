@@ -111,6 +111,12 @@
           },
           "url": {
             "$ref": "#/definitions/url"
+          },
+          "note": {
+            "type": [
+              "string",
+              "null"
+            ]
           }
         }
       }
@@ -223,6 +229,30 @@
     "manual": {
       "type": "boolean",
       "description": "true или отсутствует — файл правили люди, сборщик его не трогает; false — создан сборщиком"
+    },
+    "kernels": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "name"
+        ],
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "android": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "url": {
+            "$ref": "#/definitions/url"
+          }
+        }
+      }
     }
   }
 }
