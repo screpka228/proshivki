@@ -1,11 +1,12 @@
 name: Android
 on:
+  workflow_dispatch:
   push:
     branches: [main]
-    paths: ['android/**']
+    paths: ['android/**', '.github/workflows/android.yml']
     tags: ['v*']
   pull_request:
-    paths: ['android/**']
+    paths: ['android/**', '.github/workflows/android.yml']
 permissions:
   contents: write
 jobs:
