@@ -1,4 +1,5 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
+@file:OptIn(androidx.compose.ui.text.ExperimentalTextApi::class)
 package app.proshivki
 
 import androidx.compose.ui.graphics.Color
