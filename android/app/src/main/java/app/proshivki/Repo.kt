@@ -35,6 +35,14 @@ class Repo(private val ctx: Context) {
     private val lastCheck = longPreferencesKey("last_check")
     private val themeKey = stringPreferencesKey("theme")
 
+    private val recentKey = stringPreferencesKey("recent")
+    suspend fun recent(): List<String> = (ctx.store.data.first()[recentKey] ?: "").split(',').filter { it.isNotEmpty() }
+    suspend fun addRecent(code: String): List<String> {
+        val next = (listOf(code) + recent().filter { it != code }).take(8)
+        ctx.store.edit { it[recentKey] = next.joinToString(",") }
+        return next
+    }
+
     suspend fun theme(): String? = ctx.store.data.first()[themeKey]
     suspend fun setTheme(id: String) { ctx.store.edit { it[themeKey] = id } }
 

@@ -60,6 +60,7 @@ fun App(repo: Repo) {
     var offline by remember { mutableStateOf(false) }
     var busy by remember { mutableStateOf(false) }
     var note by remember { mutableStateOf<String?>(null) }
+    var recent by remember { mutableStateOf<List<String>>(emptyList()) }
 
     suspend fun refresh(force: Boolean) {
         busy = true
@@ -77,6 +78,7 @@ fun App(repo: Repo) {
     LaunchedEffect(Unit) {
         tk = themeById(repo.theme())
         index = repo.cachedIndex()
+        recent = repo.recent()
         refresh(false)
     }
     BackHandler(enabled = screen != Screen.Home) { screen = Screen.Home }
@@ -86,8 +88,8 @@ fun App(repo: Repo) {
             Column(Modifier.widthIn(max = 480.dp).fillMaxSize().align(Alignment.TopCenter).padding(horizontal = 18.dp, vertical = 16.dp)) {
                 if (offline) Pill("нет сети — показаны сохранённые данные", Kind.Wait)
                 when (val s = screen) {
-                    Screen.Home -> HomeScreen(index, busy, note,
-                        onOpen = { screen = Screen.Dev(it) },
+                    Screen.Home -> HomeScreen(index, busy, note, recent,
+                        onOpen = { screen = Screen.Dev(it); scope.launch { recent = repo.addRecent(it) } },
                         onTheme = { screen = Screen.ThemePick },
                         onSettings = { screen = Screen.Settings },
                         onRefresh = { scope.launch { refresh(true) } },
@@ -192,7 +194,7 @@ fun issueUrl(model: String): String =
 // ---------- экраны ----------
 @Composable
 fun HomeScreen(
-    index: List<Entry>?, busy: Boolean, note: String?, onOpen: (String) -> Unit, onTheme: () -> Unit,
+    index: List<Entry>?, busy: Boolean, note: String?, recent: List<String>, onOpen: (String) -> Unit, onTheme: () -> Unit,
     onSettings: () -> Unit, onRefresh: () -> Unit, onAdd: (String) -> Unit,
 ) {
     val t = LocalTokens.current
@@ -205,9 +207,12 @@ fun HomeScreen(
             .sortedWith(compareByDescending<Pair<String, List<Entry>>> { it.second.size }.thenBy { it.first })
             .map { (b, l) -> b to l.sortedBy { it.n.first() } }
     }
-    val list = remember(index, q) {
+    val list = remember(index, q, recent) {
         val all = index ?: emptyList()
-        if (q.isBlank()) all.take(8) else searchEntries(all, q)
+        if (q.isBlank()) {
+            val seen = recent.mapNotNull { c -> all.firstOrNull { it.c == c } }
+            if (seen.isNotEmpty()) seen else all.take(8)
+        } else searchEntries(all, q)
     }
     Header(null) { SquareBtn("⚙", "Настройки", onSettings); SquareBtn("◐", "Тема", onTheme) }
     LazyColumn(verticalArrangement = Arrangement.spacedBy(12.dp)) {
@@ -237,7 +242,7 @@ fun HomeScreen(
         } else if (q.isBlank() && boot != null) item {
             Card { T("Этот телефон", 12, sub = true); T("Загрузчик сейчас: $boot"); T("Модели нет в базе", 13, sub = true) }
         }
-        item { T(if (q.isBlank()) "Популярное" else "Результаты", 16, true) }
+        item { T(if (q.isNotBlank()) "Результаты" else if (recent.isNotEmpty()) "Недавние" else "Популярное", 16, true) }
         if (list.isEmpty() && q.isNotBlank()) item {
             Card { T("«$q» нет в базе", sub = true); Btn("Не нашли модель? Добавить") { onAdd(q) } }
         } else items(list, key = { it.c }) { e ->

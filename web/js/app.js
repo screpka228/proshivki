@@ -12,6 +12,15 @@ const STATUS = {
 };
 
 const app = document.getElementById('app');
+
+// «Недавние» хранятся только в этом браузере (localStorage), на сервер ничего не уходит.
+const RECENT_KEY = 'recent';
+function getRecent() {
+  try { const v = JSON.parse(localStorage.getItem(RECENT_KEY)); return Array.isArray(v) ? v : []; } catch { return []; }
+}
+function pushRecent(code) {
+  try { localStorage.setItem(RECENT_KEY, JSON.stringify([code, ...getRecent().filter((c) => c !== code)].slice(0, 8))); } catch { /* ignore */ }
+}
 let themeId = applyTheme(loadThemeId());
 let base = null;
 let index = null;
@@ -113,8 +122,9 @@ async function home() {
   const render = () => {
     results.replaceChildren();
     const q = input.value.trim();
-    const list = q ? search(prepared, q) : POPULAR.map((c) => index.devices.find((d) => d.c === c)).filter(Boolean);
-    results.append(h('span', { style: 'font-weight:800;font-size:16px;display:block;margin:0 0 8px' }, q ? 'Результаты' : 'Популярное'));
+    const recent = getRecent().map((c) => index.devices.find((d) => d.c === c)).filter(Boolean);
+    const list = q ? search(prepared, q) : recent.length ? recent : POPULAR.map((c) => index.devices.find((d) => d.c === c)).filter(Boolean);
+    results.append(h('span', { style: 'font-weight:800;font-size:16px;display:block;margin:0 0 8px' }, q ? 'Результаты' : recent.length ? 'Недавние' : 'Популярное'));
     if (list.length) results.append(h('div', { class: 'card list' }, list.map(deviceRow)));
     if (!q) results.append(brandSections());
     else if (!list.length) results.append(h('div', { class: 'card' },
@@ -139,6 +149,7 @@ async function device(code) {
     app.replaceChildren(h('a', { href: '#/' }, '← Назад'), h('div', { class: 'card empty' }, 'Не удалось загрузить карточку.'));
     return;
   }
+  pushRecent(code);
   const bl = d.bootloader;
   const img = d.image && safeUrl(d.image.url) ? d.image : null;
   const photo = h('div', { class: 'photo' },
