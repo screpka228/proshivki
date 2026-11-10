@@ -1,0 +1,45 @@
+{
+  "codename": "rango",
+  "names": [
+    "Google Pixel 10 Pro Fold",
+    "Pixel 10 Pro Fold"
+  ],
+  "brand": "Google",
+  "soc": "Google Tensor G5",
+  "android_range": null,
+  "bootloader": {
+    "status": "oem_unlock",
+    "wait_days": 0,
+    "method": "«Разблокировка OEM» в настройках разработчика, затем fastboot flashing unlock",
+    "guide_url": "https://source.android.com/docs/core/architecture/bootloader/locking_unlocking",
+    "notes": "Версии, купленные у некоторых операторов, могут быть заблокированы. Разблокировка стирает данные."
+  },
+  "recovery": [
+    {
+      "name": "Recovery из состава прошивки",
+      "official": true,
+      "url": null
+    }
+  ],
+  "roms": [
+    {
+      "name": "GrapheneOS",
+      "android": null,
+      "status": "active",
+      "official": true,
+      "url": "https://grapheneos.org/releases#rango"
+    }
+  ],
+  "treble_gsi": null,
+  "difficulty": 1,
+  "links": {
+    "4pda": null,
+    "xda": null
+  },
+  "image": null,
+  "updated": "2026-11-10",
+  "sources": [
+    "https://source.android.com/docs/core/architecture/bootloader/locking_unlocking",
+    "https://grapheneos.org/releases"
+  ]
+}
