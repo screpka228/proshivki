@@ -253,6 +253,21 @@
           }
         }
       }
+    },
+    "variant": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Метка версии: Exynos, Snapdragon, регион"
+    },
+    "variants": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^[a-z0-9_]+$"
+      },
+      "description": "codename других версий этого же телефона (другой процессор/регион)"
     }
   }
 }

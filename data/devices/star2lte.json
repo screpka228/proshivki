@@ -45,5 +45,6 @@
   "updated": "2026-11-10",
   "sources": [
     "https://wiki.lineageos.org/devices/star2lte/"
-  ]
+  ],
+  "variant": "Exynos"
 }

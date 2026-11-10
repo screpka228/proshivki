@@ -16,6 +16,7 @@ const devices = readdirSync('data/devices')
     a: d.roms.filter((x) => x.status === 'active').map((x) => x.name),
     d: d.difficulty ?? null,
     i: d.image ? 1 : 0,
+    v: d.variant ?? null,
   }));
 
 writeFileSync('data/index.json', JSON.stringify({ count: devices.length, generated: new Date().toISOString().slice(0, 10), devices }) + '\n');

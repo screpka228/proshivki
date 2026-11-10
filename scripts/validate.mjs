@@ -30,5 +30,14 @@ for (const f of readdirSync(DIR).filter((x) => x.endsWith('.json'))) {
     console.warn(`! ${f}: статус wait без wait_days и пояснения`);
   }
 }
+for (const f of readdirSync(DIR).filter((x) => x.endsWith('.json'))) {
+  const d = JSON.parse(readFileSync(`${DIR}/${f}`, 'utf8'));
+  for (const c of d.variants || []) {
+    if (!seen.has(c)) { bad++; console.error(`✗ ${f}: variants ссылается на несуществующий ${c}`); }
+    else if (!(JSON.parse(readFileSync(`${DIR}/${c}.json`, 'utf8')).variants || []).includes(d.codename)) {
+      bad++; console.error(`✗ ${f}: variants должны быть взаимными (${c} не ссылается на ${d.codename})`);
+    }
+  }
+}
 if (bad) process.exit(1);
 console.log(`OK: ${seen.size} моделей`);

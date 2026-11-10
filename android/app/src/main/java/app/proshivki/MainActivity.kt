@@ -94,7 +94,7 @@ fun App(repo: Repo) {
                         onSettings = { screen = Screen.Settings },
                         onRefresh = { scope.launch { refresh(true) } },
                         onAdd = { screen = Screen.Add(it) })
-                    is Screen.Dev -> DeviceScreen(repo, s.code, { screen = Screen.Home }) { screen = Screen.Add(it) }
+                    is Screen.Dev -> DeviceScreen(repo, s.code, index ?: emptyList(), { screen = Screen.Home }, { screen = Screen.Dev(it); scope.launch { recent = repo.addRecent(it) } }) { screen = Screen.Add(it) }
                     Screen.ThemePick -> ThemeScreen(tk, { screen = Screen.Home }) { t -> tk = t; scope.launch { repo.setTheme(t.id) } }
                     Screen.Settings -> SettingsScreen(repo, { screen = Screen.Home })
                     is Screen.Add -> AddScreen(s.q) { screen = Screen.Home }
@@ -247,7 +247,7 @@ fun HomeScreen(
             Card { T("«$q» нет в базе", sub = true); Btn("Не нашли модель? Добавить") { onAdd(q) } }
         } else items(list, key = { it.c }) { e ->
             Row(Modifier.fillMaxWidth().clickable { onOpen(e.c) }.padding(vertical = 8.dp), horizontalArrangement = Arrangement.SpaceBetween, verticalAlignment = Alignment.CenterVertically) {
-                Column(Modifier.weight(1f)) { T(e.n.first(), bold = true); T(e.c, 13, sub = true) }
+                Column(Modifier.weight(1f)) { T(e.n.first(), bold = true); T(if (e.v != null) "${e.c} · ${e.v}" else e.c, 13, sub = true) }
                 Pill(statusLabel(e.s, e.w), statusKind(e.s))
             }
         }
@@ -264,7 +264,7 @@ fun HomeScreen(
                 }
                 if (open) items(models, key = { "m_" + it.c }) { e ->
                     Row(Modifier.fillMaxWidth().clickable { onOpen(e.c) }.padding(vertical = 8.dp, horizontal = 8.dp), horizontalArrangement = Arrangement.SpaceBetween, verticalAlignment = Alignment.CenterVertically) {
-                        Column(Modifier.weight(1f)) { T(e.n.first(), bold = true); T(e.c, 13, sub = true) }
+                        Column(Modifier.weight(1f)) { T(e.n.first(), bold = true); T(if (e.v != null) "${e.c} · ${e.v}" else e.c, 13, sub = true) }
                         Pill(statusLabel(e.s, e.w), statusKind(e.s))
                     }
                 }
@@ -280,7 +280,7 @@ fun HomeScreen(
 }
 
 @Composable
-fun DeviceScreen(repo: Repo, code: String, onBack: () -> Unit, onAdd: (String) -> Unit) {
+fun DeviceScreen(repo: Repo, code: String, index: List<Entry>, onBack: () -> Unit, onOpen: (String) -> Unit, onAdd: (String) -> Unit) {
     var res by remember { mutableStateOf<Pair<JSONObject, Boolean>?>(null) }
     var loading by remember { mutableStateOf(true) }
     var bmp by remember { mutableStateOf<android.graphics.Bitmap?>(null) }
@@ -309,7 +309,20 @@ fun DeviceScreen(repo: Repo, code: String, onBack: () -> Unit, onAdd: (String) -
                     T(name, 24, true)
                     T(code + (s(d, "soc")?.let { " · $it" } ?: ""), 13, sub = true)
                     Pill(statusLabel(st, wait), statusKind(st))
+                    s(d, "variant")?.let { Pill(it, Kind.Unk) }
                     d.optJSONObject("image")?.let { T("${it.optString("author")}, ${it.optString("license")}", 10, sub = true) }
+                }
+            }
+        }
+        d.optJSONArray("variants")?.let { vs ->
+            val others = List(vs.length()) { vs.getString(it) }.mapNotNull { c -> index.firstOrNull { it.c == c } }
+            if (others.isNotEmpty()) item {
+                Card {
+                    T("ДРУГИЕ ВЕРСИИ ЭТОГО ТЕЛЕФОНА", 12, sub = true)
+                    for (e in others) Row(Modifier.fillMaxWidth().clickable { onOpen(e.c) }.padding(vertical = 6.dp), horizontalArrangement = Arrangement.SpaceBetween, verticalAlignment = Alignment.CenterVertically) {
+                        Column(Modifier.weight(1f)) { T(e.n.first(), bold = true); T(if (e.v != null) "${e.c} · ${e.v}" else e.c, 13, sub = true) }
+                        Pill(statusLabel(e.s, e.w), statusKind(e.s))
+                    }
                 }
             }
         }

@@ -19,7 +19,7 @@ import java.net.URL
 private val Context.store by preferencesDataStore("settings")
 
 /** Строка лёгкого индекса: названия, кодовое имя, статус загрузчика. */
-data class Entry(val c: String, val n: List<String>, val b: String, val s: String, val w: Int?, val r: Int, val d: Int?)
+data class Entry(val c: String, val n: List<String>, val b: String, val s: String, val w: Int?, val r: Int, val d: Int?, val v: String? = null)
 
 enum class Refresh { Updated, NotModified, Skipped, Offline }
 
@@ -80,7 +80,7 @@ class Repo(private val ctx: Context) {
             val o = arr.getJSONObject(i)
             val n = o.getJSONArray("n")
             Entry(o.getString("c"), List(n.length()) { n.getString(it) }, o.getString("b"), o.getString("s"),
-                if (o.isNull("w")) null else o.getInt("w"), o.optInt("r", 0), if (o.isNull("d")) null else o.getInt("d"))
+                if (o.isNull("w")) null else o.getInt("w"), o.optInt("r", 0), if (o.isNull("d")) null else o.getInt("d"), if (o.isNull("v")) null else o.optString("v"))
         }
     }
 

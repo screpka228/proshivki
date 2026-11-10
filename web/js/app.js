@@ -96,7 +96,7 @@ function disclaimer() { return h('p', { class: 'disc' }, DISCLAIMER); }
 function deviceRow(d) {
   return h('a', { class: 'item', href: `#/d/${encodeURIComponent(d.c)}` },
     h('div', { style: 'display:flex;gap:12px;align-items:center' }, d.i ? h('img', { class: 'thumb', src: `${base}images/${d.c}.webp`, alt: '', loading: 'lazy' }) : phone(22),
-      h('div', {}, h('b', {}, d.n[0]), h('span', { class: 'sub' }, d.c))),
+      h('div', {}, h('b', {}, d.n[0]), h('span', { class: 'sub' }, d.v ? `${d.c} · ${d.v}` : d.c))),
     statusPill(d.s, d.w));
 }
 
@@ -142,6 +142,12 @@ async function home() {
   render();
 }
 
+async function variantsCard(codes) {
+  await ensureIndex();
+  const items = codes.map((c) => index.devices.find((x) => x.c === c)).filter(Boolean);
+  return h('div', { class: 'card list' }, h('span', { class: 'cap', style: 'padding-top:12px' }, 'Другие версии этого телефона'), items.map(deviceRow));
+}
+
 async function device(code) {
   app.replaceChildren(h('div', { class: 'empty' }, 'Загрузка…'));
   let d;
@@ -163,7 +169,9 @@ async function device(code) {
     h('div', { class: 'row', style: 'align-items:flex-start;gap:16px' }, photo,
       h('div', { style: 'flex:1;display:flex;flex-direction:column;gap:6px' },
         h('span', { class: 'cap' }, d.brand), h('h1', { style: 'font-size:24px' }, d.names[0]),
-        h('span', { class: 'sub' }, d.codename + (d.soc ? ` · ${d.soc}` : '')), h('div', {}, statusPill(bl.status, bl.wait_days)))),
+        h('span', { class: 'sub' }, d.codename + (d.soc ? ` · ${d.soc}` : '')),
+        h('div', { style: 'display:flex;gap:6px;flex-wrap:wrap' }, statusPill(bl.status, bl.wait_days), d.variant ? h('span', { class: 'pill unk' }, d.variant) : null))),
+    d.variants && d.variants.length ? await variantsCard(d.variants) : null,
     h('div', { class: 'card' }, h('span', { class: 'cap' }, 'Загрузчик'),
       kv('Статус', (STATUS[bl.status] || STATUS.unknown)[1]),
       kv('Ожидание', bl.wait_days != null ? `${bl.wait_days} дн.` : null),
