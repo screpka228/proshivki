@@ -1,19 +1,207 @@
 {
   "codename": "oriole",
-  "names": ["Google Pixel 6", "Pixel 6"],
+  "names": [
+    "Google Pixel 6",
+    "Pixel 6"
+  ],
   "brand": "Google",
   "soc": "Google Tensor",
   "android_range": "12–16",
-  "bootloader": { "status": "oem_unlock", "wait_days": 0, "method": "Включить «Разблокировка OEM» в настройках разработчика, затем fastboot flashing unlock", "guide_url": "https://source.android.com/docs/core/architecture/bootloader/locking_unlocking", "notes": "Разблокировка стирает данные." },
-  "recovery": [{ "name": "Recovery из состава прошивки", "official": true, "url": null }],
+  "bootloader": {
+    "status": "oem_unlock",
+    "wait_days": 0,
+    "method": "Включить «Разблокировка OEM» в настройках разработчика, затем fastboot flashing unlock",
+    "guide_url": "https://source.android.com/docs/core/architecture/bootloader/locking_unlocking",
+    "notes": "Разблокировка стирает данные."
+  },
+  "recovery": [
+    {
+      "name": "Recovery из состава прошивки",
+      "official": true,
+      "url": null
+    }
+  ],
   "roms": [
-    { "name": "LineageOS", "android": null, "status": "active", "official": true, "url": "https://wiki.lineageos.org/devices/oriole/" },
-    { "name": "GrapheneOS", "android": null, "status": "active", "official": true, "url": "https://grapheneos.org/releases" }
+    {
+      "name": "LineageOS",
+      "android": null,
+      "status": "active",
+      "official": true,
+      "url": "https://wiki.lineageos.org/devices/oriole/"
+    },
+    {
+      "name": "GrapheneOS",
+      "android": null,
+      "status": "active",
+      "official": true,
+      "url": "https://grapheneos.org/releases"
+    },
+    {
+      "name": "DerpFest",
+      "android": "16",
+      "status": "active",
+      "official": false,
+      "url": "https://4pda.to/forum/index.php?showtopic=1071695&view=findpost&p=139633480"
+    },
+    {
+      "name": "Project Infinity X",
+      "android": "16",
+      "status": "active",
+      "official": false,
+      "url": "https://4pda.to/forum/index.php?showtopic=1071695&view=findpost&p=139637008"
+    },
+    {
+      "name": "CalyxOS",
+      "android": "15",
+      "status": "active",
+      "official": false,
+      "url": "https://4pda.to/forum/index.php?showtopic=1071695&view=findpost&p=134900795"
+    },
+    {
+      "name": "DerpFest",
+      "android": "15",
+      "status": "active",
+      "official": false,
+      "url": "https://4pda.to/forum/index.php?showtopic=1071695&view=findpost&p=134872168"
+    },
+    {
+      "name": "MistOS 3.2.1",
+      "android": "15",
+      "status": "active",
+      "official": false,
+      "url": "https://4pda.to/forum/index.php?showtopic=1071695&view=findpost&p=134872042"
+    },
+    {
+      "name": "RisingOS 6.2 (неофициальная)",
+      "android": "15",
+      "status": "active",
+      "official": false,
+      "url": "https://4pda.to/forum/index.php?showtopic=1071695&view=findpost&p=134871686"
+    },
+    {
+      "name": "LineageOS 22.1 (ветка 4PDA)",
+      "android": "15",
+      "status": "active",
+      "official": false,
+      "url": "https://4pda.to/forum/index.php?showtopic=1071695&view=findpost&p=134867271"
+    },
+    {
+      "name": "Infinity X",
+      "android": "14",
+      "status": "abandoned",
+      "official": false,
+      "url": "https://4pda.to/forum/index.php?showtopic=1071695&view=findpost&p=132593464"
+    },
+    {
+      "name": "crDroid v10.7",
+      "android": "14",
+      "status": "abandoned",
+      "official": false,
+      "url": "https://4pda.to/forum/index.php?showtopic=1071695&view=findpost&p=132064821"
+    },
+    {
+      "name": "Project Elixir",
+      "android": "14",
+      "status": "abandoned",
+      "official": false,
+      "url": "https://4pda.to/forum/index.php?showtopic=1071695&view=findpost&p=132064365"
+    },
+    {
+      "name": "SigmaDroid",
+      "android": "14",
+      "status": "abandoned",
+      "official": false,
+      "url": "https://4pda.to/forum/index.php?showtopic=1071695&view=findpost&p=129331060"
+    },
+    {
+      "name": "HorizonDroid",
+      "android": "14",
+      "status": "abandoned",
+      "official": false,
+      "url": "https://4pda.to/forum/index.php?showtopic=1071695&view=findpost&p=129064293"
+    },
+    {
+      "name": "Rising OS 2.0",
+      "android": "14",
+      "status": "abandoned",
+      "official": false,
+      "url": "https://4pda.to/forum/index.php?showtopic=1071695&view=findpost&p=127829567"
+    },
+    {
+      "name": "Project Zephyrus 14.2",
+      "android": "14",
+      "status": "abandoned",
+      "official": false,
+      "url": "https://4pda.to/forum/index.php?showtopic=1071695&view=findpost&p=127313152"
+    },
+    {
+      "name": "Matrixx v10.1",
+      "android": "14",
+      "status": "abandoned",
+      "official": false,
+      "url": "https://4pda.to/forum/index.php?showtopic=1071695&view=findpost&p=127160113"
+    },
+    {
+      "name": "Paranoid Android",
+      "android": "13",
+      "status": "abandoned",
+      "official": false,
+      "url": "https://4pda.to/forum/index.php?showtopic=1071695&view=findpost&p=137047947"
+    },
+    {
+      "name": "Project Zephyrus",
+      "android": "13",
+      "status": "abandoned",
+      "official": false,
+      "url": "https://4pda.to/forum/index.php?showtopic=1071695&view=findpost&p=124171968"
+    },
+    {
+      "name": "Evolution X",
+      "android": "13",
+      "status": "abandoned",
+      "official": false,
+      "url": "https://4pda.to/forum/index.php?showtopic=1071695&view=findpost&p=123695281"
+    },
+    {
+      "name": "HentaiOS",
+      "android": "13",
+      "status": "abandoned",
+      "official": false,
+      "url": "https://4pda.to/forum/index.php?showtopic=1030072&view=findpost&p=123464198"
+    },
+    {
+      "name": "StatiXOS",
+      "android": "13",
+      "status": "abandoned",
+      "official": false,
+      "url": "https://4pda.to/forum/index.php?showtopic=1030072&view=findpost&p=123020861"
+    },
+    {
+      "name": "LMODroid",
+      "android": "13",
+      "status": "abandoned",
+      "official": false,
+      "url": "https://4pda.to/forum/index.php?showtopic=1030072&view=findpost&p=122872069"
+    },
+    {
+      "name": "CalyxOS",
+      "android": "13",
+      "status": "abandoned",
+      "official": false,
+      "url": "https://calyxos.org/install/devices/oriole/"
+    }
   ],
   "treble_gsi": true,
   "difficulty": 1,
-  "links": { "4pda": null, "xda": null },
+  "links": {
+    "4pda": "https://4pda.to/forum/index.php?showtopic=1030072",
+    "xda": null
+  },
   "image": null,
   "updated": "2026-11-10",
-  "sources": ["https://wiki.lineageos.org/devices/oriole/", "https://source.android.com/docs/core/architecture/bootloader/locking_unlocking"]
+  "sources": [
+    "https://wiki.lineageos.org/devices/oriole/",
+    "https://source.android.com/docs/core/architecture/bootloader/locking_unlocking",
+    "https://github.com/screpka228/proshivki/issues/1"
+  ]
 }

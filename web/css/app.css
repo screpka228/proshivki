@@ -49,3 +49,10 @@ input:focus-visible,button:focus-visible,a:focus-visible{outline:2px solid var(-
 /* длинные ссылки и тексты не должны вылезать за карточку */
 .card,.card *{min-width:0;overflow-wrap:anywhere}
 .kv span:last-child{text-align:right}
+details.brand{padding:4px 18px;gap:0}
+details.brand summary{display:flex;justify-content:space-between;align-items:center;min-height:52px;cursor:pointer;list-style:none;font-size:16px}
+details.brand summary::-webkit-details-marker{display:none}
+details.brand summary::after{content:'▾';margin-left:10px;color:var(--sub)}
+details.brand[open] summary::after{content:'▴'}
+details.brand summary>.sub{margin-left:auto}
+details.brand .list{padding-bottom:6px}

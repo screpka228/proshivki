@@ -91,6 +91,21 @@ function deviceRow(d) {
     statusPill(d.s, d.w));
 }
 
+const openBrands = new Set();
+// Все модели, сгруппированные по брендам; раскрытые разделы запоминаются, пока открыта страница.
+function brandSections() {
+  const groups = new Map();
+  for (const d of index.devices) groups.set(d.b, [...(groups.get(d.b) || []), d]);
+  const sorted = [...groups].sort((a, b) => b[1].length - a[1].length || a[0].localeCompare(b[0]));
+  return h('div', { style: 'display:flex;flex-direction:column;gap:10px;margin-top:14px' },
+    h('span', { style: 'font-weight:800;font-size:16px' }, `Все модели · ${index.count}`),
+    sorted.map(([brand, list]) => h('details', {
+      class: 'card brand', open: openBrands.has(brand),
+      ontoggle: (e) => (e.target.open ? openBrands.add(brand) : openBrands.delete(brand)),
+    }, h('summary', {}, h('b', {}, brand), h('span', { class: 'sub' }, `${list.length}`)),
+    h('div', { class: 'list' }, list.sort((a, b) => a.n[0].localeCompare(b.n[0])).map(deviceRow)))));
+}
+
 async function home() {
   await ensureIndex();
   const input = h('input', { type: 'search', id: 'q', placeholder: 'Модель или кодовое имя', autocomplete: 'off', 'aria-label': 'Поиск' });
@@ -101,7 +116,8 @@ async function home() {
     const list = q ? search(prepared, q) : POPULAR.map((c) => index.devices.find((d) => d.c === c)).filter(Boolean);
     results.append(h('span', { style: 'font-weight:800;font-size:16px;display:block;margin:0 0 8px' }, q ? 'Результаты' : 'Популярное'));
     if (list.length) results.append(h('div', { class: 'card list' }, list.map(deviceRow)));
-    else results.append(h('div', { class: 'card' },
+    if (!q) results.append(brandSections());
+    else if (!list.length) results.append(h('div', { class: 'card' },
       h('div', { class: 'empty' }, `«${q}» нет в базе`),
       h('a', { class: 'btn', href: `#/add?q=${encodeURIComponent(q)}` }, 'Не нашли модель? Добавить')));
   };

@@ -18,6 +18,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.BasicTextField
 import androidx.compose.material3.Text
 import androidx.compose.runtime.*
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -198,6 +199,12 @@ fun HomeScreen(
     var q by remember { mutableStateOf("") }
     val mine = remember(index) { index?.let(::findThisPhone) }
     val boot = remember { bootloaderState() }
+    var expanded by rememberSaveable { mutableStateOf(setOf<String>()) }
+    val groups = remember(index) {
+        (index ?: emptyList()).groupBy { it.b }.toList()
+            .sortedWith(compareByDescending<Pair<String, List<Entry>>> { it.second.size }.thenBy { it.first })
+            .map { (b, l) -> b to l.sortedBy { it.n.first() } }
+    }
     val list = remember(index, q) {
         val all = index ?: emptyList()
         if (q.isBlank()) all.take(8) else searchEntries(all, q)
@@ -237,6 +244,25 @@ fun HomeScreen(
             Row(Modifier.fillMaxWidth().clickable { onOpen(e.c) }.padding(vertical = 8.dp), horizontalArrangement = Arrangement.SpaceBetween, verticalAlignment = Alignment.CenterVertically) {
                 Column(Modifier.weight(1f)) { T(e.n.first(), bold = true); T(e.c, 13, sub = true) }
                 Pill(statusLabel(e.s, e.w), statusKind(e.s))
+            }
+        }
+        if (q.isBlank() && index != null) {
+            item { T("Все модели · ${index.size}", 16, true) }
+            for ((brand, models) in groups) {
+                val open = brand in expanded
+                item(key = "brand_$brand") {
+                    Card(Modifier.clickable { expanded = if (open) expanded - brand else expanded + brand }) {
+                        Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween) {
+                            T(brand, 16, true); T("${models.size}  " + if (open) "▴" else "▾", sub = true)
+                        }
+                    }
+                }
+                if (open) items(models, key = { "m_" + it.c }) { e ->
+                    Row(Modifier.fillMaxWidth().clickable { onOpen(e.c) }.padding(vertical = 8.dp, horizontal = 8.dp), horizontalArrangement = Arrangement.SpaceBetween, verticalAlignment = Alignment.CenterVertically) {
+                        Column(Modifier.weight(1f)) { T(e.n.first(), bold = true); T(e.c, 13, sub = true) }
+                        Pill(statusLabel(e.s, e.w), statusKind(e.s))
+                    }
+                }
             }
         }
         item {
