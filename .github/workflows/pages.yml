@@ -2,7 +2,7 @@ name: Deploy web to GitHub Pages
 on:
   push:
     branches: [main]
-    paths: ['web/**', 'data/**', 'scripts/**']
+    paths: ['web/**', 'data/**', 'scripts/**', '.github/workflows/pages.yml']
   workflow_dispatch:
 permissions:
   contents: read
@@ -31,6 +31,7 @@ jobs:
           mkdir _site/data
           cp data/index.json _site/data/
           cp -r data/devices _site/data/devices
+          cp -r data/images _site/data/images
           cp data/LICENSE _site/data/LICENSE
       - uses: actions/upload-pages-artifact@v3
         with: { path: _site }

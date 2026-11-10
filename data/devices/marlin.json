@@ -28,7 +28,12 @@
     "4pda": null,
     "xda": null
   },
-  "image": null,
+  "image": {
+    "url": "images/marlin.webp",
+    "author": "Pc1878",
+    "license": "CC BY-SA",
+    "source": "https://commons.wikimedia.org/wiki/File:Google_Pixel_XL_Really_Blue_02.jpg"
+  },
   "updated": "2026-11-10",
   "sources": [
     "https://source.android.com/docs/core/architecture/bootloader/locking_unlocking"

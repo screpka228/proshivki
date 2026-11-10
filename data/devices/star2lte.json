@@ -36,7 +36,12 @@
     "4pda": null,
     "xda": null
   },
-  "image": null,
+  "image": {
+    "url": "images/star2lte.webp",
+    "author": "Skorp24",
+    "license": "CC BY-SA",
+    "source": "https://commons.wikimedia.org/wiki/File:Samsung_Galaxy_S9%2B_and_Wikipedia,_side_view.jpg"
+  },
   "updated": "2026-11-10",
   "sources": [
     "https://wiki.lineageos.org/devices/star2lte/"

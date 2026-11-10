@@ -36,7 +36,12 @@
     "4pda": null,
     "xda": null
   },
-  "image": null,
+  "image": {
+    "url": "images/beyond0lte.webp",
+    "author": "Kārlis Dambrāns",
+    "license": "CC BY",
+    "source": "https://commons.wikimedia.org/wiki/File:Samsung_Galaxy_S10e_(47175669981).jpg"
+  },
   "updated": "2026-11-10",
   "sources": [
     "https://wiki.lineageos.org/devices/beyond0lte/"

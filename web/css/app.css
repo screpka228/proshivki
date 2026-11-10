@@ -56,3 +56,5 @@ details.brand summary::after{content:'▾';margin-left:10px;color:var(--sub)}
 details.brand[open] summary::after{content:'▴'}
 details.brand summary>.sub{margin-left:auto}
 details.brand .list{padding-bottom:6px}
+.thumb{width:22px;height:44px;object-fit:contain;border-radius:4px;flex:none}
+.kv span:first-child{white-space:nowrap;overflow-wrap:normal}

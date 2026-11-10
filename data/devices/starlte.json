@@ -1,16 +1,50 @@
 {
   "codename": "starlte",
-  "names": ["Samsung Galaxy S9", "SM-G960F", "SM-G960N"],
+  "names": [
+    "Samsung Galaxy S9",
+    "SM-G960F",
+    "SM-G960N"
+  ],
   "brand": "Samsung",
   "soc": "Exynos 9810",
   "android_range": "8–12",
-  "bootloader": { "status": "oem_unlock", "wait_days": null, "method": "«Разблокировка OEM» в настройках разработчика, затем режим загрузки (Download mode)", "guide_url": "https://wiki.lineageos.org/devices/starlte/install/", "notes": "Модели некоторых операторов и регионов заблокированы. Разблокировка стирает данные." },
-  "recovery": [{ "name": "Lineage Recovery", "official": true, "url": "https://wiki.lineageos.org/devices/starlte/" }],
-  "roms": [{ "name": "LineageOS", "android": null, "status": "active", "official": true, "url": "https://wiki.lineageos.org/devices/starlte/" }],
+  "bootloader": {
+    "status": "oem_unlock",
+    "wait_days": null,
+    "method": "«Разблокировка OEM» в настройках разработчика, затем режим загрузки (Download mode)",
+    "guide_url": "https://wiki.lineageos.org/devices/starlte/install/",
+    "notes": "Модели некоторых операторов и регионов заблокированы. Разблокировка стирает данные."
+  },
+  "recovery": [
+    {
+      "name": "Lineage Recovery",
+      "official": true,
+      "url": "https://wiki.lineageos.org/devices/starlte/"
+    }
+  ],
+  "roms": [
+    {
+      "name": "LineageOS",
+      "android": null,
+      "status": "active",
+      "official": true,
+      "url": "https://wiki.lineageos.org/devices/starlte/"
+    }
+  ],
   "treble_gsi": true,
   "difficulty": 3,
-  "links": { "4pda": null, "xda": null },
-  "image": null,
+  "links": {
+    "4pda": null,
+    "xda": null
+  },
+  "image": {
+    "url": "images/starlte.webp",
+    "author": "DoerNoc",
+    "license": "CC BY",
+    "source": "https://commons.wikimedia.org/wiki/File:Samsung_Galaxy_S9.png"
+  },
   "updated": "2026-11-10",
-  "sources": ["https://wiki.lineageos.org/devices/starlte/"]
+  "sources": [
+    "https://wiki.lineageos.org/devices/starlte/"
+  ]
 }

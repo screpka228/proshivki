@@ -36,7 +36,12 @@
     "4pda": null,
     "xda": null
   },
-  "image": null,
+  "image": {
+    "url": "images/beryllium.webp",
+    "author": "Petar Milošević",
+    "license": "CC BY",
+    "source": "https://commons.wikimedia.org/wiki/File:Xiaomi_Poco_F1_on_Wikipedia.jpg"
+  },
   "updated": "2026-11-10",
   "sources": [
     "https://wiki.lineageos.org/devices/beryllium/"

@@ -36,7 +36,12 @@
     "4pda": null,
     "xda": null
   },
-  "image": null,
+  "image": {
+    "url": "images/beyond1lte.webp",
+    "author": "TheWikiContributor",
+    "license": "CC BY-SA",
+    "source": "https://commons.wikimedia.org/wiki/File:Samsung_Galaxy_S10%2B.png"
+  },
   "updated": "2026-11-10",
   "sources": [
     "https://wiki.lineageos.org/devices/beyond1lte/"

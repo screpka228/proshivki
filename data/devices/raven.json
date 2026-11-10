@@ -36,7 +36,12 @@
     "4pda": null,
     "xda": null
   },
-  "image": null,
+  "image": {
+    "url": "images/raven.webp",
+    "author": "Miyako Fujimiya",
+    "license": "CC0",
+    "source": "https://commons.wikimedia.org/wiki/File:Rear_view_of_Google_Pixel_6_Pro.jpg"
+  },
   "updated": "2026-11-10",
   "sources": [
     "https://wiki.lineageos.org/devices/raven/"

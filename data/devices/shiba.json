@@ -36,7 +36,12 @@
     "4pda": null,
     "xda": null
   },
-  "image": null,
+  "image": {
+    "url": "images/shiba.webp",
+    "author": "IXTA9839",
+    "license": "CC BY-SA",
+    "source": "https://commons.wikimedia.org/wiki/File:Google_Pixel_8_Rose_rear.jpg"
+  },
   "updated": "2026-11-10",
   "sources": [
     "https://wiki.lineageos.org/devices/shiba/"

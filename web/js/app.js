@@ -95,7 +95,7 @@ function disclaimer() { return h('p', { class: 'disc' }, DISCLAIMER); }
 
 function deviceRow(d) {
   return h('a', { class: 'item', href: `#/d/${encodeURIComponent(d.c)}` },
-    h('div', { style: 'display:flex;gap:12px;align-items:center' }, phone(22),
+    h('div', { style: 'display:flex;gap:12px;align-items:center' }, d.i ? h('img', { class: 'thumb', src: `${base}images/${d.c}.webp`, alt: '', loading: 'lazy' }) : phone(22),
       h('div', {}, h('b', {}, d.n[0]), h('span', { class: 'sub' }, d.c))),
     statusPill(d.s, d.w));
 }
@@ -151,10 +151,11 @@ async function device(code) {
   }
   pushRecent(code);
   const bl = d.bootloader;
-  const img = d.image && safeUrl(d.image.url) ? d.image : null;
+  const imgSrc = d.image ? (d.image.url.startsWith('https://') ? d.image.url : base + d.image.url) : null;
+  const img = d.image ? { ...d.image, url: imgSrc } : null;
   const photo = h('div', { class: 'photo' },
-    img ? h('img', { src: img.url, alt: d.names[0], loading: 'lazy', referrerpolicy: 'no-referrer' }) : phone(60, 'var(--card)'),
-    img ? h('small', {}, `${img.author}, ${img.license}`) : null);
+    img ? h('img', { src: img.url, alt: d.names[0], loading: 'lazy' }) : phone(60, 'var(--card)'),
+    img ? h('small', {}, `Фото: ${img.author}, ${img.license}`, ' · ', extLink(img.source, 'источник', 'sub')) : null);
   const kv = (k, v) => v == null || v === '' ? null : h('div', { class: 'kv' }, h('span', {}, k), h('span', {}, v));
   const list = (items, fn) => items.length ? items.map(fn) : [h('div', { class: 'sub' }, 'нет данных')];
   app.replaceChildren(

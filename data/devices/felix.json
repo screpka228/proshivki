@@ -43,7 +43,12 @@
     "4pda": null,
     "xda": null
   },
-  "image": null,
+  "image": {
+    "url": "images/felix.webp",
+    "author": "Syced",
+    "license": "CC0",
+    "source": "https://commons.wikimedia.org/wiki/File:Google_Pixel_Fold,_shown_in_Shibuya_Stream.jpg"
+  },
   "updated": "2026-11-10",
   "sources": [
     "https://source.android.com/docs/core/architecture/bootloader/locking_unlocking",

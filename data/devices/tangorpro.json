@@ -43,7 +43,12 @@
     "4pda": null,
     "xda": null
   },
-  "image": null,
+  "image": {
+    "url": "images/tangorpro.webp",
+    "author": "AnVuong1222004 (8)",
+    "license": "CC BY-SA",
+    "source": "https://commons.wikimedia.org/wiki/File:Google_Pixel_Tablet.png"
+  },
   "updated": "2026-11-10",
   "sources": [
     "https://source.android.com/docs/core/architecture/bootloader/locking_unlocking",

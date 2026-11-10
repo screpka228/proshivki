@@ -36,7 +36,12 @@
     "4pda": null,
     "xda": null
   },
-  "image": null,
+  "image": {
+    "url": "images/crownlte.webp",
+    "author": "TheWikiContributor",
+    "license": "CC BY-SA",
+    "source": "https://commons.wikimedia.org/wiki/File:Samsung_Galaxy_Note_9.png"
+  },
   "updated": "2026-11-10",
   "sources": [
     "https://wiki.lineageos.org/devices/crownlte/"

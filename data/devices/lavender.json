@@ -35,7 +35,12 @@
     "4pda": null,
     "xda": null
   },
-  "image": null,
+  "image": {
+    "url": "images/lavender.webp",
+    "author": "Nickispeaki",
+    "license": "CC BY-SA",
+    "source": "https://commons.wikimedia.org/wiki/File:Xiaomi_Redmi_Note_7_4_GB.jpg"
+  },
   "updated": "2026-11-10",
   "sources": [
     "https://wiki.lineageos.org/devices/lavender/"

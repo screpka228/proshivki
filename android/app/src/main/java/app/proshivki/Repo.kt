@@ -100,7 +100,8 @@ class Repo(private val ctx: Context) {
         if (f.exists()) { f.setLastModified(System.currentTimeMillis()); runCatching { JSONObject(f.readText()) to true }.getOrNull() } else null
     }
 
-    suspend fun image(url: String): Bitmap? = withContext(Dispatchers.IO) {
+    suspend fun image(rel: String): Bitmap? = withContext(Dispatchers.IO) {
+        val url = if (rel.startsWith("https://")) rel else raw + rel
         if (!url.startsWith("https://")) return@withContext null
         val f = File(dir, "img_" + url.hashCode().toUInt().toString(16))
         if (f.exists()) { f.setLastModified(System.currentTimeMillis()); BitmapFactory.decodeFile(f.path)?.let { return@withContext it } }

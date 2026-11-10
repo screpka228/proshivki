@@ -36,7 +36,12 @@
     "4pda": null,
     "xda": null
   },
-  "image": null,
+  "image": {
+    "url": "images/d2s.webp",
+    "author": "Samsung Galaxy Note 10 & Google",
+    "license": "CC BY",
+    "source": "https://commons.wikimedia.org/wiki/File:Samsung_Galaxy_Note_10%2B.png"
+  },
   "updated": "2026-11-10",
   "sources": [
     "https://wiki.lineageos.org/devices/d2s/"

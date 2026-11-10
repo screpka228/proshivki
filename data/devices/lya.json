@@ -22,7 +22,12 @@
     "4pda": null,
     "xda": null
   },
-  "image": null,
+  "image": {
+    "url": "images/lya.webp",
+    "author": "とらもん192",
+    "license": "CC BY",
+    "source": "https://commons.wikimedia.org/wiki/File:Huawei_Mate_20_Pro_(LYA-L09)_Backside.jpg"
+  },
   "updated": "2026-11-10",
   "sources": [
     "https://en.wikipedia.org/wiki/Huawei_Mate_20_Pro"

@@ -36,7 +36,12 @@
     "4pda": null,
     "xda": null
   },
-  "image": null,
+  "image": {
+    "url": "images/d1.webp",
+    "author": "嘉傑",
+    "license": "CC BY",
+    "source": "https://commons.wikimedia.org/wiki/File:Samsung_Galaxy_Note_10_%26_Note_10%2B.jpg"
+  },
   "updated": "2026-11-10",
   "sources": [
     "https://wiki.lineageos.org/devices/d1/"

@@ -36,7 +36,12 @@
     "4pda": null,
     "xda": null
   },
-  "image": null,
+  "image": {
+    "url": "images/sweet.webp",
+    "author": "Petar Milošević",
+    "license": "CC BY-SA",
+    "source": "https://commons.wikimedia.org/wiki/File:Xiaomi_Redmi_Note_10_Pro_(Global)_front.jpg"
+  },
   "updated": "2026-11-10",
   "sources": [
     "https://wiki.lineageos.org/devices/sweet/"
